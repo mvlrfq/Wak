@@ -4,7 +4,7 @@
 --gaya-font3: 'Caveat', cursive;
 }
 body {overflow:hidden;background:#000;font-family:var(--gaya-font); margin: 0;}
-body::before{content:"Marhamah";color:white;opacity:.5;font-size:10px;position:fixed;bottom:25px;right:25px;z-index:150}
+body::before{content:"Rafiqi";color:white;opacity:.5;font-size:10px;position:fixed;bottom:25px;right:25px;z-index:150}
 @keyframes jj{0%  {transform: scale(1.2);} 50% {transform: scale(1.5);} 100% {transform: scale(1);}}
 @keyframes rto{from {transform:scale(1);} to {transform:scale(1.1);}}
 #counter{position:fixed;color:white;font-size:11px;top:20px;left:20px;z-index:999}
@@ -46,4 +46,5 @@ svg{vertical-align: middle;width: 22px;height: 22px;fill: #fff}
 
 #counter{position:fixed;color:white;font-size:11px;top:20px;left:20px;z-index:999}
 .fa-heart {opacity:.3;color:white;font-size: 20px;position: fixed;animation:  heartMove linear 1;top: -10vh;z-index: 999;}
+
 @keyframes heartMove {0%{transform: translateY(-10vh) ;} 100%{transform: translateY(100vh) ;}}
