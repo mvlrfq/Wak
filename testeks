@@ -1,0 +1,24 @@
+// 1. Pilih elemen yang ingin diawasi (misal: body atau container tertentu)
+const targetNode = document.body;
+
+// 2. Konfigurasi apa yang ingin diawasi
+const config = { 
+    childList: true, // Awasi jika ada penambahan/penghapusan elemen anak
+    subtree: true    // Awasi juga perubahan di dalam elemen cucu/cicit
+};
+
+// 3. Fungsi yang akan dijalankan saat ada perubahan
+const callback = function(mutationsList, observer) {
+    for(const mutation of mutationsList) {
+        if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            console.log('Elemen baru terdeteksi! Merefresh halaman...');
+            
+            // 4. Perintah untuk refresh halaman
+            location.reload(); 
+        }
+    }
+};
+
+// 5. Buat instance observer dan mulai mengawasi
+const observer = new MutationObserver(callback);
+observer.observe(targetNode, config);
