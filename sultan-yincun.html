@@ -1,0 +1,1862 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Untukmu, Yincun Tersayang ❤️</title>
+  <!-- Memuat Tailwind CSS untuk tata letak responsif dan modern -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Memuat Google Fonts: Plus Jakarta Sans & Playfair Display untuk tipografi estetik -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            serif: ['"Playfair Display"', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    /* Variabel Tema Warna Dinamis */
+    :root {
+      --bg-gradient-1: #ffe4e6;
+      --bg-gradient-2: #fecdd3;
+      --bg-gradient-3: #fff1f2;
+      --orb-1: rgba(251, 113, 133, 0.35);
+      --orb-2: rgba(244, 63, 94, 0.25);
+      --accent-primary: #e11d48;
+      --accent-secondary: #fb7185;
+      --accent-soft: rgba(225, 29, 72, 0.12);
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --glass-bg: rgba(255, 255, 255, 0.68);
+      --glass-border: rgba(255, 255, 255, 0.85);
+    }
+
+    /* Tema Lavender Mist */
+    [data-theme="lavender"] {
+      --bg-gradient-1: #f3e8ff;
+      --bg-gradient-2: #e9d5ff;
+      --bg-gradient-3: #faf5ff;
+      --orb-1: rgba(192, 132, 252, 0.35);
+      --orb-2: rgba(168, 85, 247, 0.25);
+      --accent-primary: #9333ea;
+      --accent-secondary: #c084fc;
+      --accent-soft: rgba(147, 51, 234, 0.12);
+    }
+
+    /* Tema Warm Peach */
+    [data-theme="peach"] {
+      --bg-gradient-1: #ffedd5;
+      --bg-gradient-2: #fed7aa;
+      --bg-gradient-3: #fff7ed;
+      --orb-1: rgba(251, 146, 60, 0.35);
+      --orb-2: rgba(249, 115, 22, 0.25);
+      --accent-primary: #ea580c;
+      --accent-secondary: #fb923c;
+      --accent-soft: rgba(234, 88, 12, 0.12);
+    }
+
+    /* Latar Belakang Mesh Gradien Lembut */
+    body {
+      background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 50%, var(--bg-gradient-3) 100%);
+      color: var(--text-main);
+      transition: background 0.8s ease;
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* Orb Cahaya Mengambang di Latar Belakang */
+    .ambient-orb {
+      position: fixed;
+      border-radius: 9999px;
+      filter: blur(75px);
+      z-index: 0;
+      pointer-events: none;
+      transition: background 0.8s ease;
+      animation: floatOrb 12s infinite alternate ease-in-out;
+    }
+
+    .orb-1 {
+      width: 340px;
+      height: 340px;
+      background: var(--orb-1);
+      top: -80px;
+      left: -60px;
+    }
+
+    .orb-2 {
+      width: 380px;
+      height: 380px;
+      background: var(--orb-2);
+      bottom: -100px;
+      right: -80px;
+      animation-delay: -5s;
+    }
+
+    @keyframes floatOrb {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(30px, 40px) scale(1.1); }
+    }
+
+    /* Kanvas Latar Belakang Bokeh & Kelopak Hati Melayang Lembut */
+    #ambientLoveCanvas {
+      position: fixed;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    /* Efek Glassmorphism Ala Apple + Kilau Cahaya Lembut (Shimmer) */
+    .apple-glass {
+      position: relative;
+      overflow: hidden;
+      background: var(--glass-bg);
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid var(--glass-border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.9);
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .apple-glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(
+        115deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.38) 50%,
+        transparent 100%
+      );
+      transform: skewX(-20deg);
+      animation: glassShimmer 7.5s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes glassShimmer {
+      0%, 60% { left: -120%; }
+      100% { left: 180%; }
+    }
+
+    /* Animasi Napas / Melayang Lembut pada Kartu */
+    @keyframes softFloatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .animate-soft-float {
+      animation: softFloatCard 5.5s ease-in-out infinite;
+    }
+
+    /* Efek Riak Cahaya Cinta Saat Menyentuh Layar */
+    .touch-ripple {
+      position: fixed;
+      border-radius: 9999px;
+      pointer-events: none;
+      z-index: 9998;
+      border: 2px solid var(--accent-secondary);
+      background: radial-gradient(circle, var(--accent-soft) 0%, transparent 70%);
+      transform: translate(-50%, -50%) scale(0.2);
+      animation: rippleExpand 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes rippleExpand {
+      0% {
+        opacity: 0.85;
+        width: 24px;
+        height: 24px;
+        transform: translate(-50%, -50%) scale(0.3);
+      }
+      100% {
+        opacity: 0;
+        width: 140px;
+        height: 140px;
+        transform: translate(-50%, -50%) scale(1.2);
+      }
+    }
+
+    /* Animasi Goyang Lucu Tombol Kabur */
+    @keyframes wiggleTease {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-6deg) scale(1.04); }
+      75% { transform: rotate(6deg) scale(1.04); }
+    }
+
+    .animate-wiggle {
+      animation: wiggleTease 0.35s ease-in-out;
+    }
+
+    .apple-glass-inner {
+      background: rgba(255, 255, 255, 0.55);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    }
+
+    /* Tombol Aksen Dinamis */
+    .btn-accent {
+      background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+      color: white;
+      box-shadow: 0 8px 20px -4px var(--orb-1);
+      transition: transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+    }
+
+    .btn-accent:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 25px -4px var(--orb-1);
+    }
+
+    .btn-accent:active {
+      transform: scale(0.95);
+    }
+
+    .text-accent {
+      color: var(--accent-primary);
+      transition: color 0.5s ease;
+    }
+
+    .bg-accent-soft {
+      background-color: var(--accent-soft);
+      transition: background-color 0.5s ease;
+    }
+
+    /* Animasi Detak Jantung */
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14% { transform: scale(1.14); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.1); }
+      70% { transform: scale(1); }
+    }
+
+    .animate-heartbeat {
+      animation: heartbeat 1.8s infinite ease-in-out;
+    }
+
+    /* Kursor Mesin Tik */
+    .typing-cursor::after {
+      content: '|';
+      animation: blink 0.9s infinite;
+      color: var(--accent-primary);
+      font-weight: 400;
+      margin-left: 2px;
+    }
+
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+
+    /* Animasi Partikel Hati Melayang */
+    .floating-heart {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      user-select: none;
+      animation: floatUpHeart var(--duration, 2.5s) cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+    }
+
+    @keyframes floatUpHeart {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) scale(0.5) rotate(0deg);
+      }
+      50% {
+        opacity: 0.95;
+        transform: translate(var(--tx, 20px), -140px) scale(1.15) rotate(var(--rot, 15deg));
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--tx2, -15px), -320px) scale(0.8) rotate(var(--rot2, -15deg));
+      }
+    }
+
+    /* Animasi Transisi Kartu Alasan */
+    .reason-pop {
+      animation: popIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes popIn {
+      0% { opacity: 0; transform: scale(0.92) translateY(8px); }
+      100% { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Garis Putus-putus Kupon */
+    .coupon-card {
+      position: relative;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .coupon-card:hover:not(.claimed) {
+      transform: translateY(-3px);
+    }
+    .coupon-card.claimed {
+      opacity: 0.72;
+      filter: grayscale(0.25);
+    }
+
+    /* Animasi Getar Lucu Saat Kena Bad Mood di Mini-Game */
+    @keyframes shakeScreen {
+      0%, 100% { transform: translateX(0); }
+      20% { transform: translateX(-8px) rotate(-1deg); }
+      40% { transform: translateX(8px) rotate(1deg); }
+      60% { transform: translateX(-6px); }
+      80% { transform: translateX(6px); }
+    }
+
+    .animate-shake {
+      animation: shakeScreen 0.4s ease-in-out;
+    }
+
+    /* Animasi Karakter Maskot Cinta Lucu */
+    @keyframes mascotBounce {
+      0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+      35% { transform: translateY(-10px) rotate(-6deg) scale(1.08); }
+      70% { transform: translateY(-4px) rotate(6deg) scale(1.04); }
+    }
+
+    .animate-mascot-joy {
+      animation: mascotBounce 0.65s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    @keyframes mascotIdle {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-4px) rotate(2deg); }
+    }
+
+    .animate-mascot-idle {
+      animation: mascotIdle 3.2s ease-in-out infinite;
+    }
+
+    /* Efek Gembok / Kartu Segel Paragraf Interaktif */
+    .story-step-card {
+      transition: all 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .story-step-enter {
+      animation: storyReveal 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+
+    @keyframes storyReveal {
+      0% { opacity: 0; transform: translateY(16px) scale(0.95); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    /* Efek Konfeti Kelopak Cinta */
+    .petal-burst {
+      position: fixed;
+      pointer-events: none;
+      z-index: 9999;
+      animation: petalFall var(--dur, 2.2s) cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    }
+
+    @keyframes petalFall {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0deg) scale(0.6);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(var(--dx, 40px), var(--dy, 140px)) rotate(var(--rot, 240deg)) scale(1.1);
+      }
+    }
+
+    /* Galeri Foto Kenangan */
+    .photo-frame {
+      opacity: 0;
+      transform: translateY(34px) rotate(var(--r, 0deg)) scale(0.85);
+      background: #fff;
+      padding: 6px 6px 2px;
+      border-radius: 14px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+      user-select: none;
+    }
+    .photo-frame.show {
+      animation:
+        photoIn 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) var(--d, 0s) forwards,
+        photoFloat 5s ease-in-out calc(var(--d, 0s) + 0.9s) infinite;
+    }
+    @keyframes photoIn {
+      to { opacity: 1; transform: translateY(0) rotate(var(--r, 0deg)) scale(1); }
+    }
+    @keyframes photoFloat {
+      0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
+      50% { transform: translateY(-6px) rotate(calc(var(--r, 0deg) * -0.4)); }
+    }
+    .photo-img {
+      overflow: hidden;
+      border-radius: 10px;
+      background: var(--accent-soft);
+    }
+    
+	.photo-img.is-empty { aspect-ratio: 547 / 397; }
+    .photo-img img { width: 100%; height: auto; max-height: 75vh; object-fit: cover; display: block; }
+	.photo-ph {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+      background: linear-gradient(135deg, var(--accent-soft), rgba(255, 255, 255, 0.7));
+      color: var(--accent-primary);
+    }
+    .photo-ph span { font-size: 26px; }
+    .photo-ph small { font-size: 10px; font-weight: 700; }
+    .photo-frame figcaption {
+      font-family: "Playfair Display", serif;
+      font-style: italic;
+      font-size: 10px;
+      line-height: 1.3;
+      text-align: center;
+      color: var(--text-muted);
+      padding: 6px 2px 5px;
+    }
+
+    /* Sembunyikan Scrollbar namun tetap bisa scroll */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0.12);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-rose-200 selection:text-rose-900 flex flex-col items-center justify-center p-4 sm:p-6">
+  <!-- Orb Latar Belakang -->
+  <div class="ambient-orb orb-1"></div>
+  <div class="ambient-orb orb-2"></div>
+
+  <!-- Kanvas Partikel Bokeh & Kelopak Hati Melayang Lembut -->
+  <canvas id="ambientLoveCanvas"></canvas>
+
+  <!-- Bilah Kontrol Atas: Pemilih Tema & Musik Ambient -->
+  <header class="relative z-20 w-full max-w-xl flex items-center justify-between mb-4 px-1">
+    <!-- Pemilih Tema Warna -->
+    <div class="apple-glass rounded-full px-3 py-1.5 flex items-center gap-2" title="Pilih Suasana Warna">
+      <span class="text-xs font-medium text-gray-600 hidden sm:inline pl-1">Tema:</span>
+      <button
+        onclick="setTheme('rose')"
+        id="theme-rose"
+        aria-label="Tema Soft Rose"
+        class="w-6 h-6 rounded-full bg-gradient-to-tr from-rose-500 to-pink-300 ring-2 ring-offset-2 ring-rose-400 transition-transform hover:scale-110"
+      ></button>
+      <button
+        onclick="setTheme('lavender')"
+        id="theme-lavender"
+        aria-label="Tema Lavender Mist"
+        class="w-6 h-6 rounded-full bg-gradient-to-tr from-purple-500 to-indigo-300 opacity-75 hover:opacity-100 transition-transform hover:scale-110"
+      ></button>
+      <button
+        onclick="setTheme('peach')"
+        id="theme-peach"
+        aria-label="Tema Warm Peach"
+        class="w-6 h-6 rounded-full bg-gradient-to-tr from-orange-500 to-amber-300 opacity-75 hover:opacity-100 transition-transform hover:scale-110"
+      ></button>
+    </div>
+
+    <!-- Kontrol Audio & Kustomisasi -->
+    <div class="flex items-center gap-2">
+      <button
+        onclick="toggleMusic()"
+        id="musicBtn"
+        class="apple-glass rounded-full px-3.5 py-1.5 flex items-center gap-2 text-xs font-semibold text-gray-700 hover:bg-white/80 active:scale-95 transition"
+      >
+        <span id="musicIcon" class="text-base">🎵</span>
+        <span id="musicLabel">Musik Lembut</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Kontainer Utama -->
+  <main class="relative z-10 w-full max-w-xl">
+    <!-- ========================================== -->
+    <!-- TAHAP 1: GERBANG JEBAKAN & TOMBOL KABUR    -->
+    <!-- ========================================== -->
+    <section
+      id="trapGateScreen"
+      class="apple-glass animate-soft-float rounded-[32px] p-7 sm:p-10 text-center flex flex-col items-center justify-center min-h-[460px] transition-all duration-700"
+    >
+      <div class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-accent-soft text-accent text-xs font-semibold mb-4">
+        <span class="animate-heartbeat inline-block">💌</span>
+        <span>Verifikasi Khusus Untuk Yincun</span>
+      </div>
+
+      <div class="text-5xl mb-3 animate-heartbeat">🥺👉👈</div>
+
+      <h1 class="font-serif text-2xl sm:text-3xl font-bold text-gray-800 mb-2">
+        Hai <span class="js-recipient-name text-accent">Yincun</span> cantik!
+      </h1>
+      <p id="trapQuestionText" class="text-sm sm:text-base text-gray-600 max-w-sm mb-3 leading-relaxed">
+        Sebelum surat rahasianya kebuka, jawab jujur dulu ya <strong class="js-recipient-name text-accent">Yincun</strong>... Kamu kangen dan sayang banget kan sama aku? 😜
+      </p>
+
+      <!-- Balon Komentar Lucu Saat Tombol Kabur -->
+      <div class="h-8 flex items-center justify-center mb-5">
+        <span
+          id="teaseBubble"
+          class="text-xs font-semibold px-3.5 py-1 rounded-full bg-white/80 text-accent shadow-sm opacity-0 transition-opacity duration-200"
+        >
+          Eits, gak kena Yincun! 😝
+        </span>
+      </div>
+
+      <!-- Area Tombol Jawaban -->
+      <div id="trapButtonArena" class="relative w-full max-w-sm h-32 flex flex-col sm:flex-row items-center justify-center gap-3">
+        <button
+          id="yesLoveBtn"
+          onclick="acceptTrapLove(event)"
+          class="btn-accent rounded-2xl px-6 py-3.5 font-bold text-sm sm:text-base flex items-center gap-2 cursor-pointer z-10 transition-all duration-300"
+        >
+          <span class="animate-heartbeat inline-block">❤️</span>
+          <span>Iya, sayang banget!</span>
+        </button>
+
+        <button
+          id="runawayBtn"
+          onmouseover="dodgeRunawayButton(event)"
+          ontouchstart="dodgeRunawayButton(event)"
+          onclick="dodgeRunawayButton(event)"
+          class="apple-glass-inner rounded-2xl px-5 py-3 text-xs sm:text-sm font-semibold text-gray-600 hover:bg-white/90 cursor-pointer transition-all duration-200 select-none"
+        >
+          Enggak tuh 😒
+        </button>
+      </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAHAP 2: MINI-GAME TANGKAP HATI YINCUN     -->
+    <!-- ========================================== -->
+    <section
+      id="miniGameScreen"
+      class="hidden opacity-0 scale-95 apple-glass rounded-[32px] p-5 sm:p-7 text-center flex-col items-center justify-center transition-all duration-700"
+    >
+      <div class="w-full flex items-center justify-between mb-3">
+        <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-accent-soft text-accent text-xs font-bold">
+          <span>🎮</span>
+          <span>Misi Cinta <span class="js-recipient-name">Yincun</span></span>
+        </div>
+        <div class="text-xs font-bold text-gray-700 bg-white/75 px-3 py-1 rounded-full">
+          Skor <span class="js-recipient-name text-accent">Yincun</span>: <span id="gameScoreText" class="text-accent">0</span> / 100
+        </div>
+      </div>
+
+      <h2 class="font-serif text-xl sm:text-2xl font-bold text-gray-800 mb-1">
+        Tangkap Cinta Buat <span class="js-recipient-name text-accent">Yincun</span>! 💕
+      </h2>
+      <p id="gameInstructionText" class="text-xs sm:text-sm text-gray-600 mb-3">
+        Geser keranjang cinta untuk menangkap ❤️ 💌 🍫 🌸 dan hindari bom bad mood 💣 ⛈️ sampai skor <strong class="text-accent">100</strong>!
+      </p>
+
+      <!-- Bar Progres Skor Mini-Game -->
+      <div class="w-full h-2.5 bg-white/70 rounded-full overflow-hidden p-0.5 border border-white mb-3">
+        <div
+          id="gameProgressBar"
+          class="h-full rounded-full btn-accent transition-all duration-200"
+          style="width: 0%"
+        ></div>
+      </div>
+
+      <!-- Area Kanvas Permainan Responsif -->
+      <div id="gameCanvasWrapper" class="relative w-full h-[300px] sm:h-[330px] rounded-2xl overflow-hidden apple-glass-inner border border-white/90 touch-none select-none">
+        <canvas id="loveGameCanvas" class="w-full h-full block"></canvas>
+
+        <!-- Overlay Mulai / Menang -->
+        <div
+          id="gameOverlay"
+          class="absolute inset-0 bg-white/65 backdrop-blur-md flex flex-col items-center justify-center p-5 text-center transition-opacity duration-300"
+        >
+          <span id="gameOverlayEmoji" class="text-4xl mb-2 animate-heartbeat">🧺💖</span>
+          <h3 id="gameOverlayTitle" class="font-serif text-lg sm:text-xl font-bold text-gray-800 mb-1">
+            Siap Main, <span class="js-recipient-name text-accent">Yincun</span>?
+          </h3>
+          <p id="gameOverlayDesc" class="text-xs sm:text-sm text-gray-600 max-w-xs mb-4">
+            Geser jari atau gerakkan kursor di dalam kotak ini untuk menangkap semua rasa sayangku!
+          </p>
+          <button
+            id="startGameBtn"
+            onclick="startLoveMiniGame()"
+            class="btn-accent rounded-2xl px-6 py-3 font-bold text-sm flex items-center gap-2 cursor-pointer"
+          >
+            <span>Mulai Tangkap Cinta ✨</span>
+          </button>
+        </div>
+      </div>
+
+      <p class="text-[11px] text-gray-500 mt-3">
+        Tip: Tangkap 💌 surat cinta bernilai +15 poin untuk <span class="js-recipient-name font-semibold">Yincun</span>!
+      </p>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- TAHAP 3: KARTU UCAPAN & FITUR INTERAKTIF   -->
+    <!-- ========================================== -->
+    <section
+      id="mainCard"
+      class="hidden opacity-0 translate-y-6 transition-all duration-700 space-y-5"
+    >
+      <!-- Kartu Surat Utama -->
+      <div class="apple-glass animate-soft-float rounded-[32px] p-6 sm:p-9">
+        <!-- Header Surat + Maskot Cinta Interaktif Yincun -->
+        <div class="flex items-center justify-between border-b border-white/60 pb-4 mb-5 gap-3">
+          <div>
+            <p class="text-xs font-semibold uppercase tracking-wider text-accent mb-0.5">Surat Interaktif Spesial</p>
+            <h2 class="font-serif text-2xl sm:text-3xl font-bold text-gray-800">
+              Untuk <span id="cardRecipientName" class="js-recipient-name text-accent">Yincun</span> ❤️
+            </h2>
+          </div>
+
+          <!-- Maskot Lucu yang Bisa Dielus / Diketuk Yincun -->
+          <button
+            type="button"
+            onclick="pokeMascot(event)"
+            id="mascotBtn"
+            title="Ketuk aku dong Yincun!"
+            class="relative group flex flex-col items-center justify-center rounded-2xl bg-accent-soft px-3.5 py-2 border border-white/80 shadow-inner cursor-pointer active:scale-90 transition"
+          >
+            <span id="mascotEmoji" class="text-3xl animate-mascot-idle inline-block select-none">🐻‍❄️💖</span>
+            <span id="mascotSpeech" class="text-[10px] font-bold text-accent mt-0.5 whitespace-nowrap">Elus aku!</span>
+          </button>
+        </div>
+
+        <!-- Petunjuk & Indikator Progres Membaca Surat Interaktif -->
+        <div class="flex items-center justify-between text-xs text-gray-600 mb-3 px-1">
+          <span class="font-medium">Buka bagian suratnya pelan-pelan ya <strong class="js-recipient-name text-accent">Yincun</strong> ✨</span>
+          <span id="letterStageBadge" class="font-bold px-2.5 py-0.5 rounded-full bg-accent-soft text-accent">Bagian 1 / 3</span>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- BAGIAN 1 SURAT: EFEK KETIKAN + INTERAKSI TAP GELEMBUNG -->
+        <!-- ===================================================== -->
+        <div class="apple-glass-inner rounded-2xl p-5 sm:p-6 mb-4 relative">
+          <p
+            id="typewriterText"
+            class="text-sm sm:text-base text-gray-700 leading-relaxed whitespace-pre-line font-normal typing-cursor"
+          ></p>
+          <button
+            id="skipTypingBtn"
+            onclick="finishTypingImmediately()"
+            class="mt-3 text-[11px] font-semibold text-accent hover:underline"
+          >
+            Tampilkan teks bagian 1 langsung →
+          </button>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- BAGIAN 2 SURAT: GOSOK / KETUK KARTU RAHASIA YINCUN    -->
+        <!-- ===================================================== -->
+        <div id="letterStage2Container" class="mb-4">
+          <!-- Segel Interaktif Bagian 2 (Sebelum Dibuka Yincun) -->
+          <div
+            id="stage2LockBox"
+            class="apple-glass-inner rounded-2xl p-5 text-center border-2 border-dashed border-rose-300/80 transition-all"
+          >
+            <div class="text-3xl mb-1.5 animate-bounce">🪄💌</div>
+            <h4 class="font-bold text-sm sm:text-base text-gray-800 mb-1">
+              Paragraf Rahasia #2 Masih Terkunci!
+            </h4>
+            <p class="text-xs text-gray-600 mb-3">
+              Ketuk tombol hati di bawah <strong>3 kali</strong> untuk mencairkan segel esnya, <span class="js-recipient-name font-semibold text-accent">Yincun</span>!
+            </p>
+
+            <!-- Bar Pencair Segel -->
+            <div class="w-44 mx-auto h-2 bg-white/80 rounded-full overflow-hidden mb-3 border border-white">
+              <div id="stage2MeltBar" class="h-full btn-accent transition-all duration-300" style="width: 0%"></div>
+            </div>
+
+            <button
+              type="button"
+              onclick="meltStage2Seal(event)"
+              id="stage2MeltBtn"
+              class="btn-accent rounded-xl px-5 py-2.5 text-xs sm:text-sm font-bold inline-flex items-center gap-2 cursor-pointer"
+            >
+              <span>️‍❤️‍🔥 (<span id="stage2TapCount">0</span>/3)</span>
+            </button>
+          </div>
+
+          <!-- Isi Paragraf Bagian 2 (Muncul Setelah Segel Cair) -->
+          <div
+            id="stage2RevealedBox"
+            class="hidden story-step-enter apple-glass-inner rounded-2xl p-5 sm:p-6 border border-rose-200/70"
+          >
+            <div class="flex items-center gap-1.5 text-xs font-bold text-accent mb-2">
+              <span>🌸</span>
+              <span>Bagian 2 • Hal Kecil Tentang <span class="js-recipient-name">Yincun</span></span>
+            </div>
+            <p id="letterPart2Text" class="text-sm sm:text-base text-gray-700 leading-relaxed">
+              Aku bersyukur banget bisa kenal Yincun, lihat senyum manismu tiap hari, ketawa bareng hal-hal receh, dan jalan berdampingan sama kamu. Kehadiran Yincun selalu jadi tempat pulang paling nyaman buatku.
+            </p>
+          </div>
+        </div>
+
+        <!-- ===================================================== -->
+        <!-- BAGIAN 3 SURAT: GESER SLIDER CINTA UNTUK JANJI PENUTUP-->
+        <!-- ===================================================== -->
+        <div id="letterStage3Container" class="mb-4">
+          <!-- Segel Slider Bagian 3 -->
+          <div
+            id="stage3LockBox"
+            class="apple-glass-inner rounded-2xl p-5 text-center border-2 border-dashed border-rose-300/80 transition-all"
+          >
+            <div class="text-3xl mb-1.5">🚀💞</div>
+            <h4 class="font-bold text-sm sm:text-base text-gray-800 mb-1">
+              Kirim Roket Cinta ke Kanan Buat Buka Penutup!
+            </h4>
+            <p class="text-xs text-gray-600 mb-3">
+              Seberapa besar cinta yincun buat Sultan<br>Geser slider di bawah sampai penuh 100% baru kebuka😼 <span class="js-recipient-name font-semibold text-accent">Yincun</span>~
+            </p>
+
+            <div class="max-w-xs mx-auto px-2">
+              <input
+                type="range"
+                id="loveRocketSlider"
+                min="0"
+                max="100"
+                value="0"
+                oninput="handleLoveSlider(this.value)"
+                class="w-full accent-rose-500 cursor-pointer h-2.5 rounded-lg"
+              />
+              <div class="flex justify-between text-[11px] font-semibold text-gray-500 mt-1">
+                <span>🥺 Mulai</span>
+                <span id="sliderPercentLabel" class="text-accent">0%</span>
+                <span>💖 Penuh!</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Isi Paragraf Bagian 3 (Penutup Romantis) -->
+          <div
+            id="stage3RevealedBox"
+            class="hidden story-step-enter apple-glass-inner rounded-2xl p-5 sm:p-6 bg-gradient-to-br from-white/80 to-rose-50/70 border border-rose-200"
+          >
+            <div class="flex items-center gap-1.5 text-xs font-bold text-accent mb-2">
+              <span>👑</span>
+              <span>Bagian 3 • Janji Untuk <span class="js-recipient-name">Yincun</span></span>
+            </div>
+            <p id="letterPart3Text" class="text-sm sm:text-base text-gray-700 leading-relaxed font-medium">
+              Semoga hari ini dan hari-hari ke depan selalu dipenuhi kebahagiaan buat Yincun. Jangan lupa jaga kesehatan, jangan sering begadang, dan ingat selalu kalau aku sayang Yincun hari ini, esok, dan seterusnya! ❤️✨
+            </p>
+          </div>
+        </div>
+
+        <!-- Tanda Tangan Pengirim -->
+        <div class="flex items-center justify-between text-sm text-gray-600 px-1 pt-2 border-t border-white/50">
+          <span class="italic font-serif text-base text-gray-700">
+            Dengan sepenuh hati untuk <span class="js-recipient-name font-semibold text-accent not-italic">Yincun</span>, dari <strong id="cardSenderName" class="font-semibold text-accent not-italic">Aku yang selalu menyayangimu</strong>
+          </span>
+          <button
+            onclick="replayInteractiveLetter()"
+            class="text-xs font-medium text-gray-500 hover:text-gray-800 flex items-center gap-1 transition"
+            title="Ulangi interaksi surat dari awal"
+          >
+            <span>↻</span> Ulangi
+          </button>
+        </div>
+      </div>
+
+      <!-- Galeri 3 Foto Kenangan -->
+      <div class="apple-glass rounded-[28px] p-6">
+        <div class="flex items-center gap-2 mb-1">
+          <span class="text-xl animate-heartbeat inline-block">📸</span>
+          <h3 class="font-bold text-gray-800 text-base sm:text-lg">Kenangan Kita</h3>
+        </div>
+        <p class="text-xs text-gray-500 mb-5">Tiga momen kecil yang selalu bikin aku tersenyum.</p>
+        <div id="photoStage" class="grid grid-cols-1 gap-7 max-w-md mx-auto"></div>
+      </div>
+
+      <!-- Fitur Interaktif 1: Kapsul 'Alasan Aku Sayang Yincun' -->
+      <div class="apple-glass rounded-[28px] p-6">
+        <div class="flex items-center justify-between mb-3">
+          <div class="flex items-center gap-2">
+            <span class="text-xl animate-heartbeat inline-block">✨</span>
+            <h3 class="font-bold text-gray-800 text-base sm:text-lg">Alasan Aku Sayang <span class="js-recipient-name text-accent">Yincun</span></h3>
+          </div>
+          <span id="reasonCounter" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-accent-soft text-accent">
+            1 / 12
+          </span>
+        </div>
+
+        <div
+          id="reasonBox"
+          class="apple-glass-inner rounded-2xl p-5 text-center min-h-[96px] flex items-center justify-center mb-4"
+        >
+          <p id="reasonText" class="text-sm sm:text-base font-medium text-gray-700 leading-relaxed">
+            "Karena senyum Yincun selalu berhasil membuat hariku yang berat terasa jauh lebih ringan."
+          </p>
+        </div>
+
+        <button
+          onclick="nextReason(event)"
+          class="w-full py-3 rounded-2xl apple-glass-inner hover:bg-white/80 text-accent font-semibold text-sm flex items-center justify-center gap-2 active:scale-[0.98] transition"
+        >
+          <span>🎲</span>
+          <span>Lihat Alasan Lainnya Buat <span class="js-recipient-name">Yincun</span></span>
+        </button>
+      </div>
+
+      <!-- Fitur Interaktif 3: Kuis Cinta Iseng Buat Yincun -->
+      <div class="apple-glass rounded-[28px] p-6">
+        <div class="flex items-center justify-between mb-2">
+          <div class="flex items-center gap-2">
+            <span class="text-xl">🤭</span>
+            <h3 class="font-bold text-gray-800 text-base sm:text-lg">Kuis Iseng Buat <span class="js-recipient-name text-accent">Yincun</span></h3>
+          </div>
+          <span id="quizStepBadge" class="text-xs font-semibold px-2.5 py-1 rounded-full bg-accent-soft text-accent">
+            Soal 1 / 3
+          </span>
+        </div>
+
+        <div id="quizBox" class="apple-glass-inner rounded-2xl p-4 sm:p-5 mb-3">
+          <p id="quizQuestion" class="text-sm sm:text-base font-semibold text-gray-800 mb-3">
+            Kalau Yincun lagi ngambek, obat paling mujarabnya apa hayo?
+          </p>
+          <div id="quizOptions" class="grid grid-cols-1 gap-2">
+            <!-- Opsi jawaban dirender via JS -->
+          </div>
+        </div>
+        <p id="quizFeedback" class="text-xs font-semibold text-center text-accent min-h-[18px]"></p>
+      </div>
+
+      <!-- Fitur Interaktif 4: Tombol Love Burst & Bagikan -->
+      <div class="apple-glass rounded-[28px] p-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <button
+          onclick="triggerLoveBurst(event)"
+          class="w-full sm:w-auto flex-1 btn-accent rounded-2xl py-3.5 px-6 font-bold text-sm sm:text-base flex items-center justify-center gap-2.5 cursor-pointer"
+        >
+          <span class="text-xl animate-heartbeat inline-block">🤗</span>
+          <span>Cinta buat sultan dari <span class="js-recipient-name">Yincun</span> (<span id="hugCount">0</span>)</span>
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- NOTIFIKASI TOAST LEMBUT (PENGGANTI ALERT)  -->
+  <!-- ========================================== -->
+  <div
+    id="toastBox"
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 pointer-events-none opacity-0 translate-y-4 transition-all duration-300"
+  >
+    <div class="apple-glass rounded-full px-5 py-2.5 shadow-lg flex items-center gap-2 text-xs sm:text-sm font-semibold text-gray-800 border border-white">
+      <span id="toastIcon">💖</span>
+      <span id="toastText">Pesan tersimpan!</span>
+    </div>
+  </div>
+
+  <script>
+    /* ==========================================================================
+       KONFIGURASI FOTO & MUSIK  (ISI DI SINI SEBELUM DIKIRIM)
+       - photos[].src : alamat foto (mis. "foto1.jpg" satu folder dengan file ini,
+                        atau link https://...). Kosong = tampil bingkai kosong.
+       - musicUrl     : link langsung ke file musik (.mp3). Kosong = pakai
+                        melodi romantis bawaan kartu.
+       ========================================================================== */
+    const LOVE_MEDIA = {
+      musicUrl: "",
+      photos: [
+        { src: "https://i.ibb.co.com/0yZnPTRy/IMG-0376.jpg", caption: "Momen pertama kita" },
+        { src: "https://i.ibb.co.com/ZpS27Wfd/IMG-0026.jpg", caption: "Hari paling seru" },
+        { src: "https://i.ibb.co.com/d4ghV2yB/IMG-0027.jpg", caption: "hmmmmm..." },
+      ],
+    };
+
+    /* ==========================================================================
+       1. STATE & DATA APLIKASI (DIPERSONALISASI UNTUK YINCUN)
+       ========================================================================== */
+    const defaultData = {
+      recipient: "Yincun",
+      sender: "Aku yang selalu menyayangimu",
+      gateQuestion:
+        "Sebelum surat rahasianya kebuka, jawab jujur dulu ya {name}... Kamu kangen dan sayang banget kan sama aku? 😜",
+      message:
+        "Hai Yincun sayang,\n\nTerima kasih sudah hadir dan menjadi bagian paling indah dalam setiap hariku. Bersamamu, hal-hal sederhana selalu terasa jauh lebih hangat dan istimewa.",
+      theme: "rose",
+    };
+
+    let appState = { ...defaultData };
+    let isUnlocked = false;
+    let isTyping = false;
+    let typewriterTimer = null;
+    let hugCounter = 0;
+    let currentQuizIndex = 0;
+
+    // Daftar Alasan Sayang untuk Yincun
+    const loveReasonsTemplates = [
+      "Karena senyum Yincun selalu berhasil membuat hariku yang berat terasa jauh lebih ringan.",
+      "Karena Yincun selalu punya cara gemes buat bikin aku ketawa walau pas lagi bete.",
+      "Karena setiap ngobrol sama Yincun, waktu rasanya jalan cepet banget.",
+      "Karena Yincun itu pendengar paling baik dan selalu ngertiin perasaanku.",
+      "Karena pelukan dan perhatian kecil dari Yincun bikin aku merasa jadi orang paling beruntung.",
+      "Karena ketawa Yincun nular dan bikin suasana di sekitar langsung cerah.",
+      "Karena Yincun selalu sabar sama sifatku yang kadang ngeselin ini.",
+      "Karena di dekat Yincun, aku bisa jadi diri sendiri tanpa perlu jaim.",
+      "Karena Yincun itu cantik banget, baik hati, dan punya hati yang tulus.",
+      "Karena masa depan jadi hal paling aku tunggu-tunggu karena ada Yincun di dalamnya.",
+      "Karena makanan apapun bakal terasa lebih enak kalau dinikmati bareng Yincun.",
+      "Karena sederhana aja rasanya sudah luar biasa istimewa kalau pasangannya Yincun."
+    ];
+    let currentReasonIndex = 0;
+
+    // Daftar Kuis Cinta Iseng untuk Yincun
+    const sillyQuizTemplates = [
+      {
+        q: "Kalau {name} lagi ngambek, obat paling mujarabnya apa hayo?",
+        options: [
+          { text: "Ditraktir makanan manis / boba 🧋", reply: "Bener banget! {name} langsung luluh kalau dapet makanan enak~" },
+          { text: "Dengerin {name} ngomel panjang lebar 🗣️", reply: "Haha iya juga ya, yang penting {name} lega!" },
+          { text: "Dikasih pelukan hangat erat-erat 🤗", reply: "Wajib banget! Pelukan dari aku nomor satu buat {name}." }
+        ]
+      },
+      {
+        q: "Apa julukan paling pas buat {name} sehari-hari?",
+        options: [
+          { text: "Si Ratu Ngambek Paling Manis 👑", reply: "Hahaha setuju! Tapi tetep paling disayang." },
+          { text: "Partner Kuliner & Bucin Sejati 🍜", reply: "Wah kalau ini fix banget gak bisa dipisahkan!" },
+          { text: "Pawang Hati Paling Ampuh 💖", reply: "Bener! Cuma {name} yang bisa pegang kendali hatiku." }
+        ]
+      },
+      {
+        q: "Seberapa sayang sih aku sama {name} hari ini?",
+        options: [
+          { text: "Seluas galaksi dan bintang-bintang ✨", reply: "Kurang luas! Sayangku ke {name} tak bertepi~" },
+          { text: "Sebanyak bulu kucing di dunia 🐱", reply: "Wah banyak banget tuh! Tapi emang beneran sayang." },
+          { text: "Selamanya sampai selamanya lagi ♾️", reply: "Jawaban paling tepat! Love you so much {name}!" }
+        ]
+      }
+    ];
+
+    function formatWithRecipient(str) {
+      return str.replace(/\{name\}/g, appState.recipient);
+    }
+
+    /* ==========================================================================
+       3. ANIMASI LATAR BELAKANG LEMBUT (BOKEH & HATI MELAYANG) + RIAK SENTUHAN
+       ========================================================================== */
+    function initAmbientLoveCanvas() {
+      const canvas = document.getElementById("ambientLoveCanvas");
+      if (!canvas) return;
+      const ctx = canvas.getContext("2d");
+
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      window.addEventListener("resize", () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+
+      const particles = [];
+      const particleCount = Math.min(26, Math.floor(width / 35) + 12);
+
+      for (let i = 0; i < particleCount; i++) {
+        particles.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          size: 7 + Math.random() * 14,
+          speedY: 0.25 + Math.random() * 0.55,
+          swayAmp: 0.4 + Math.random() * 0.8,
+          swayPhase: Math.random() * Math.PI * 2,
+          alpha: 0.14 + Math.random() * 0.24,
+          isHeart: i % 2 === 0,
+        });
+      }
+
+      function drawMiniHeart(x, y, size, alpha) {
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.scale(size / 20, size / 20);
+        ctx.beginPath();
+        ctx.moveTo(0, 6);
+        ctx.bezierCurveTo(-10, -4, -20, 4, 0, 18);
+        ctx.bezierCurveTo(20, 4, 10, -4, 0, 6);
+        ctx.closePath();
+
+        if (appState.theme === "lavender") {
+          ctx.fillStyle = `rgba(192, 132, 252, ${alpha})`;
+        } else if (appState.theme === "peach") {
+          ctx.fillStyle = `rgba(251, 146, 60, ${alpha})`;
+        } else {
+          ctx.fillStyle = `rgba(251, 113, 133, ${alpha})`;
+        }
+        ctx.fill();
+        ctx.restore();
+      }
+
+      function animateAmbient() {
+        ctx.clearRect(0, 0, width, height);
+
+        particles.forEach((p) => {
+          p.y -= p.speedY;
+          p.swayPhase += 0.015;
+          p.x += Math.sin(p.swayPhase) * p.swayAmp;
+
+          if (p.y < -30) {
+            p.y = height + 20;
+            p.x = Math.random() * width;
+          }
+
+          if (p.isHeart) {
+            drawMiniHeart(p.x, p.y, p.size, p.alpha);
+          } else {
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.size * 0.45, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${p.alpha + 0.15})`;
+            ctx.fill();
+          }
+        });
+
+        requestAnimationFrame(animateAmbient);
+      }
+
+      animateAmbient();
+    }
+
+    function initGlobalTouchRipples() {
+      document.addEventListener("pointerdown", (e) => {
+        // Jangan buat riak ganda jika sedang bermain di dalam kanvas game
+        if (e.target && e.target.id === "loveGameCanvas") return;
+
+        const ripple = document.createElement("div");
+        ripple.className = "touch-ripple";
+        ripple.style.left = `${e.clientX}px`;
+        ripple.style.top = `${e.clientY}px`;
+        document.body.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 860);
+      });
+    }
+
+    /* ==========================================================================
+       4. TAHAP 1: GERBANG JEBAKAN & TOMBOL KABUR NGESELIN BUAT YINCUN
+       ========================================================================== */
+    let dodgeCount = 0;
+    const teaseMessagesTemplates = [
+      "Eits, gak kena {name}! 😝",
+      "Yakin {name} gak kangen? Coba pencet lagi kalau bisa~ 🏃‍♂️💨",
+      "Tombolnya kabur tuh {name}, pencet yang pink aja! 💕",
+      "Wlee {name} gak bakal bisa klik tombol ini 😜",
+      "Udah menyerah aja {name}, mengaku kangen itu indah tau~ 🥰",
+      "Awas {name}, tombol 'Iya' makin gede lho! 💖"
+    ];
+
+    function dodgeRunawayButton(event) {
+      if (event) event.preventDefault();
+      dodgeCount++;
+
+      // Efek suara boing lucu
+      playBoingSound();
+
+      const btn = document.getElementById("runawayBtn");
+      const yesBtn = document.getElementById("yesLoveBtn");
+      const bubble = document.getElementById("teaseBubble");
+      const arena = document.getElementById("trapButtonArena");
+
+      // Pindahkan tombol kabur secara acak di dalam area aman
+      const arenaRect = arena.getBoundingClientRect();
+      const maxOffsetX = Math.max(80, arenaRect.width / 2 - 50);
+      const maxOffsetY = 55;
+
+      const randX = (Math.random() - 0.5) * 2 * maxOffsetX;
+      const randY = (Math.random() - 0.5) * 2 * maxOffsetY;
+
+      btn.style.position = "relative";
+      btn.style.transform = `translate(${randX}px, ${randY}px)`;
+      btn.classList.remove("animate-wiggle");
+      void btn.offsetWidth;
+      btn.classList.add("animate-wiggle");
+
+      // Perbesar tombol "Iya, sayang banget!" secara bertahap
+      const scaleYes = Math.min(1.38, 1 + dodgeCount * 0.06);
+      yesBtn.style.transform = `scale(${scaleYes})`;
+
+      // Tampilkan komentar mengejek yang menyebut nama Yincun
+      const msgTemplate = teaseMessagesTemplates[(dodgeCount - 1) % teaseMessagesTemplates.length];
+      bubble.textContent = formatWithRecipient(msgTemplate);
+      bubble.classList.remove("opacity-0");
+
+      if (dodgeCount >= 5) {
+        btn.textContent = `Oke ${appState.recipient} nyerah 😂`;
+      }
+    }
+
+    function acceptTrapLove(event) {
+      playChimeChord();
+      if (event) {
+        spawnHearts(event.clientX, event.clientY, 18);
+      }
+      showToast("🥰", `Tuh kan ${appState.recipient} memang sayang banget!`);
+
+      const gate = document.getElementById("trapGateScreen");
+      const gameScreen = document.getElementById("miniGameScreen");
+
+      gate.classList.add("opacity-0", "scale-95");
+      setTimeout(() => {
+        gate.classList.add("hidden");
+        gameScreen.classList.remove("hidden");
+        gameScreen.classList.add("flex");
+        requestAnimationFrame(() => {
+          gameScreen.classList.remove("opacity-0", "scale-95");
+        });
+      }, 450);
+    }
+
+    /* ==========================================================================
+       5. TAHAP 2: MINI-GAME HTML5 CANVAS 'TANGKAP HATI BUAT YINCUN'
+       ========================================================================== */
+    let gameActive = false;
+    let gameScore = 0;
+    let gameAnimationId = null;
+
+    function startLoveMiniGame() {
+      const canvas = document.getElementById("loveGameCanvas");
+      const wrapper = document.getElementById("gameCanvasWrapper");
+      const overlay = document.getElementById("gameOverlay");
+
+      canvas.width = wrapper.clientWidth;
+      canvas.height = wrapper.clientHeight;
+      const ctx = canvas.getContext("2d");
+
+      overlay.classList.add("opacity-0", "pointer-events-none");
+      gameActive = true;
+      gameScore = 0;
+      updateGameScoreUI();
+      playSoftPluck(523.25);
+
+      const basket = {
+        x: canvas.width / 2,
+        y: canvas.height - 38,
+        width: 78,
+        height: 36,
+      };
+
+      let items = [];
+      let popups = [];
+      let lastSpawn = 0;
+
+      // Kontrol sentuhan jari & mouse
+      const updateBasketPos = (clientX) => {
+        const rect = canvas.getBoundingClientRect();
+        const relX = clientX - rect.left;
+        basket.x = Math.max(basket.width / 2, Math.min(canvas.width - basket.width / 2, relX));
+      };
+
+      canvas.onpointermove = (e) => {
+        if (gameActive) updateBasketPos(e.clientX);
+      };
+      canvas.onpointerdown = (e) => {
+        if (gameActive) updateBasketPos(e.clientX);
+      };
+
+      const goodItems = [
+        { emoji: "❤️", points: 10, label: "+10" },
+        { emoji: "💌", points: 15, label: `Cinta ${appState.recipient} +15` },
+        { emoji: "🍫", points: 10, label: "+10" },
+        { emoji: "🌸", points: 12, label: "+12" },
+      ];
+      const badItems = [
+        { emoji: "💣", points: -15, label: "Awas Bom! -15" },
+        { emoji: "⛈️", points: -10, label: "Bad Mood -10" },
+      ];
+
+      function gameLoop(timestamp) {
+        if (!gameActive) return;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Spawn item jatuh
+        if (timestamp - lastSpawn > 650) {
+          lastSpawn = timestamp;
+          const isBad = Math.random() < 0.26;
+          const template = isBad
+            ? badItems[Math.floor(Math.random() * badItems.length)]
+            : goodItems[Math.floor(Math.random() * goodItems.length)];
+
+          items.push({
+            x: 26 + Math.random() * (canvas.width - 52),
+            y: -24,
+            speed: 2.4 + Math.random() * 2.1,
+            isBad,
+            ...template,
+          });
+        }
+
+        // Gambar Keranjang Cinta Yincun
+        ctx.save();
+        ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
+        ctx.beginPath();
+        ctx.roundRect(basket.x - basket.width / 2, basket.y - basket.height / 2, basket.width, basket.height, 18);
+        ctx.fill();
+        ctx.strokeStyle = "#fb7185";
+        ctx.lineWidth = 2.5;
+        ctx.stroke();
+
+        ctx.font = "bold 12px 'Plus Jakarta Sans', sans-serif";
+        ctx.fillStyle = "#e11d48";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText(`🧺 ${appState.recipient}`, basket.x, basket.y);
+        ctx.restore();
+
+        // Update & Gambar Item Jatuh
+        for (let i = items.length - 1; i >= 0; i--) {
+          const item = items[i];
+          item.y += item.speed;
+
+          ctx.font = "28px sans-serif";
+          ctx.textAlign = "center";
+          ctx.textBaseline = "middle";
+          ctx.fillText(item.emoji, item.x, item.y);
+
+          // Cek tabrakan dengan keranjang
+          const hitX = Math.abs(item.x - basket.x) < basket.width * 0.58;
+          const hitY = Math.abs(item.y - basket.y) < basket.height * 0.65;
+
+          if (hitX && hitY) {
+            gameScore = Math.max(0, Math.min(100, gameScore + item.points));
+            updateGameScoreUI();
+
+            if (item.isBad) {
+              playBoingSound();
+            } else {
+              playSoftPluck(580 + gameScore * 2);
+            }
+
+            popups.push({
+              x: item.x,
+              y: basket.y - 24,
+              text: item.label,
+              color: item.isBad ? "#ef4444" : "#e11d48",
+              alpha: 1,
+            });
+
+            items.splice(i, 1);
+
+            if (gameScore >= 100) {
+              winLoveMiniGame();
+              return;
+            }
+            continue;
+          }
+
+          if (item.y > canvas.height + 30) {
+            items.splice(i, 1);
+          }
+        }
+
+        // Gambar teks popup skor melayang
+        for (let j = popups.length - 1; j >= 0; j--) {
+          const p = popups[j];
+          p.y -= 1.1;
+          p.alpha -= 0.025;
+          if (p.alpha <= 0) {
+            popups.splice(j, 1);
+            continue;
+          }
+          ctx.save();
+          ctx.globalAlpha = p.alpha;
+          ctx.font = "bold 13px 'Plus Jakarta Sans', sans-serif";
+          ctx.fillStyle = p.color;
+          ctx.textAlign = "center";
+          ctx.fillText(p.text, p.x, p.y);
+          ctx.restore();
+        }
+
+        gameAnimationId = requestAnimationFrame(gameLoop);
+      }
+
+      gameAnimationId = requestAnimationFrame(gameLoop);
+    }
+
+    function updateGameScoreUI() {
+      document.getElementById("gameScoreText").textContent = gameScore;
+      document.getElementById("gameProgressBar").style.width = `${gameScore}%`;
+    }
+
+    function winLoveMiniGame() {
+      gameActive = false;
+      cancelAnimationFrame(gameAnimationId);
+      playChimeChord();
+
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      spawnHearts(centerX, centerY, 28);
+      showToast("🏆", `Hebat banget ${appState.recipient}! Surat cinta terbuka!`);
+
+      const gameScreen = document.getElementById("miniGameScreen");
+      const mainCard = document.getElementById("mainCard");
+
+      isUnlocked = true;
+      gameScreen.classList.add("opacity-0", "scale-95");
+      setTimeout(() => {
+        gameScreen.classList.add("hidden");
+        gameScreen.classList.remove("flex");
+        mainCard.classList.remove("hidden");
+
+        requestAnimationFrame(() => {
+          mainCard.classList.remove("opacity-0", "translate-y-6");
+        });
+
+        startTypewriter(appState.message);
+      }, 500);
+    }
+
+    /* ==========================================================================
+       6. EFEK MENGETIK (TYPEWRITER)
+       ========================================================================== */
+    function startTypewriter(text) {
+      clearInterval(typewriterTimer);
+      const targetEl = document.getElementById("typewriterText");
+      const skipBtn = document.getElementById("skipTypingBtn");
+
+      targetEl.textContent = "";
+      targetEl.classList.add("typing-cursor");
+      skipBtn.classList.remove("hidden");
+      isTyping = true;
+
+      let index = 0;
+      typewriterTimer = setInterval(() => {
+        if (index < text.length) {
+          targetEl.textContent += text.charAt(index);
+          index++;
+        } else {
+          finishTypingImmediately();
+        }
+      }, 30);
+    }
+
+    function finishTypingImmediately() {
+      clearInterval(typewriterTimer);
+      const targetEl = document.getElementById("typewriterText");
+      const skipBtn = document.getElementById("skipTypingBtn");
+
+      targetEl.textContent = appState.message;
+      targetEl.classList.remove("typing-cursor");
+      skipBtn.classList.add("hidden");
+      isTyping = false;
+    }
+
+    function replayTypewriter() {
+      startTypewriter(appState.message);
+    }
+
+    /* ==========================================================================
+       7. FITUR INTERAKTIF: ALASAN SAYANG, INTERAKSI SURAT & KUIS ISENG YINCUN
+       ========================================================================== */
+    let mascotTapCount = 0;
+    const mascotReactions = [
+      { emoji: "🐻‍❄️💖", speech: "Sayang Yincun!" },
+      { emoji: "🐰🥰", speech: "Yincun gemes!" },
+      { emoji: "🐱✨", speech: "Hehe geli tau~" },
+      { emoji: "🦊💕", speech: "Peluk Yincun!" },
+      { emoji: "🐼🌸", speech: "Cantiknya Yincun!" },
+    ];
+
+    function pokeMascot(event) {
+      mascotTapCount++;
+      playSoftPluck(587.33 + (mascotTapCount % 4) * 65);
+
+      const btn = document.getElementById("mascotBtn");
+      const emojiEl = document.getElementById("mascotEmoji");
+      const speechEl = document.getElementById("mascotSpeech");
+
+      const reaction = mascotReactions[mascotTapCount % mascotReactions.length];
+      emojiEl.textContent = reaction.emoji;
+      speechEl.textContent = reaction.speech.replace(/Yincun/g, appState.recipient);
+
+      emojiEl.classList.remove("animate-mascot-joy");
+      void emojiEl.offsetWidth;
+      emojiEl.classList.add("animate-mascot-joy");
+
+      if (event) {
+        spawnHearts(event.clientX, event.clientY, 8);
+      }
+    }
+
+    let stage2Taps = 0;
+    let stage2Unlocked = false;
+    let stage3Unlocked = false;
+
+    function meltStage2Seal(event) {
+      if (stage2Unlocked) return;
+      stage2Taps++;
+      playSoftPluck(480 + stage2Taps * 90);
+
+      const percent = Math.min(100, Math.round((stage2Taps / 3) * 100));
+      document.getElementById("stage2TapCount").textContent = stage2Taps;
+      document.getElementById("stage2MeltBar").style.width = `${percent}%`;
+
+      if (event) {
+        spawnHearts(event.clientX, event.clientY, 7);
+      }
+
+      if (stage2Taps >= 3) {
+        stage2Unlocked = true;
+        playChimeChord();
+        document.getElementById("stage2LockBox").classList.add("hidden");
+        document.getElementById("stage2RevealedBox").classList.remove("hidden");
+        document.getElementById("letterStageBadge").textContent = "Bagian 2 / 3";
+        pokeMascot(event);
+        showToast("🌸", `Yeay! Paragraf ke-2 terbuka buat ${appState.recipient}!`);
+      }
+    }
+
+    function handleLoveSlider(val) {
+      if (stage3Unlocked) return;
+      const numericVal = parseInt(val, 10);
+      document.getElementById("sliderPercentLabel").textContent = `${numericVal}%`;
+
+      if (numericVal >= 98) {
+        stage3Unlocked = true;
+        playChimeChord();
+        document.getElementById("stage3LockBox").classList.add("hidden");
+        document.getElementById("stage3RevealedBox").classList.remove("hidden");
+        document.getElementById("letterStageBadge").textContent = "Lengkap 3 / 3 ❤️";
+
+        const centerX = window.innerWidth / 2;
+        const centerY = window.innerHeight / 2;
+        spawnHearts(centerX, centerY, 24);
+        pokeMascot({ clientX: centerX, clientY: centerY });
+        showToast("💖", `Semua surat cinta untuk ${appState.recipient} sudah terbuka!`);
+      }
+    }
+
+    function replayInteractiveLetter() {
+      stage2Taps = 0;
+      stage2Unlocked = false;
+      stage3Unlocked = false;
+
+      document.getElementById("stage2TapCount").textContent = "0";
+      document.getElementById("stage2MeltBar").style.width = "0%";
+      document.getElementById("stage2LockBox").classList.remove("hidden");
+      document.getElementById("stage2RevealedBox").classList.add("hidden");
+
+      const slider = document.getElementById("loveRocketSlider");
+      if (slider) slider.value = 0;
+      document.getElementById("sliderPercentLabel").textContent = "0%";
+      document.getElementById("stage3LockBox").classList.remove("hidden");
+      document.getElementById("stage3RevealedBox").classList.add("hidden");
+
+      document.getElementById("letterStageBadge").textContent = "Bagian 1 / 3";
+      startTypewriter(appState.message);
+    }
+
+    function nextReason(event) {
+      playSoftPluck(523.25);
+      let nextIdx;
+      do {
+        nextIdx = Math.floor(Math.random() * loveReasonsTemplates.length);
+      } while (nextIdx === currentReasonIndex && loveReasonsTemplates.length > 1);
+
+      currentReasonIndex = nextIdx;
+      const reasonBox = document.getElementById("reasonBox");
+      const reasonText = document.getElementById("reasonText");
+      const reasonCounter = document.getElementById("reasonCounter");
+
+      reasonBox.classList.remove("reason-pop");
+      void reasonBox.offsetWidth;
+      reasonBox.classList.add("reason-pop");
+
+      reasonText.textContent = `"${formatWithRecipient(loveReasonsTemplates[currentReasonIndex])}"`;
+      reasonCounter.textContent = `${currentReasonIndex + 1} / ${loveReasonsTemplates.length}`;
+
+      if (event) {
+        spawnHearts(event.clientX, event.clientY, 5);
+      }
+    }
+
+    function renderQuiz() {
+      const qBox = document.getElementById("quizQuestion");
+      const optContainer = document.getElementById("quizOptions");
+      const badge = document.getElementById("quizStepBadge");
+      const feedback = document.getElementById("quizFeedback");
+      if (!qBox || !optContainer) return;
+
+      const currentQ = sillyQuizTemplates[currentQuizIndex];
+      badge.textContent = `Soal ${currentQuizIndex + 1} / ${sillyQuizTemplates.length}`;
+      qBox.textContent = formatWithRecipient(currentQ.q);
+      feedback.textContent = "";
+      optContainer.innerHTML = "";
+
+      currentQ.options.forEach((opt) => {
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className =
+          "w-full text-left rounded-xl px-4 py-2.5 text-xs sm:text-sm font-medium bg-white/75 hover:bg-white text-gray-700 border border-white transition active:scale-[0.98] cursor-pointer";
+        btn.textContent = formatWithRecipient(opt.text);
+        btn.onclick = (e) => {
+          playSoftPluck(659.25);
+          spawnHearts(e.clientX, e.clientY, 6);
+          feedback.textContent = formatWithRecipient(opt.reply);
+
+          setTimeout(() => {
+            currentQuizIndex = (currentQuizIndex + 1) % sillyQuizTemplates.length;
+            renderQuiz();
+          }, 2300);
+        };
+        optContainer.appendChild(btn);
+      });
+    }
+
+    /* ==========================================================================
+       7. EFEK PARTIKEL HATI MELAYANG (LOVE BURST)
+       ========================================================================== */
+    function triggerLoveBurst(event) {
+      hugCounter++;
+      document.getElementById("hugCount").textContent = hugCounter;
+      playSoftPluck(587.33); // Nada D5
+
+      const rect = event.currentTarget.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top;
+      spawnHearts(x, y, 16);
+
+      if (hugCounter === 1) {
+        showToast("🤗", `Pelukan hangat terkirim untuk ${appState.recipient}!`);
+      } else if (hugCounter % 5 === 0) {
+        showToast("💞", `${hugCounter}x pelukan penuh cinta terkirim!`);
+      }
+    }
+
+    function spawnHearts(originX, originY, count = 8) {
+      const heartEmojis = ["❤️", "💖", "💗", "💕", "🌸", "✨"];
+      for (let i = 0; i < count; i++) {
+        const el = document.createElement("span");
+        el.className = "floating-heart";
+        el.textContent = heartEmojis[Math.floor(Math.random() * heartEmojis.length)];
+
+        const spreadX = (Math.random() - 0.5) * 140;
+        const spreadX2 = spreadX + (Math.random() - 0.5) * 90;
+        const rot = (Math.random() - 0.5) * 50;
+        const rot2 = -rot;
+        const duration = 1.8 + Math.random() * 1.2;
+        const size = 16 + Math.floor(Math.random() * 16);
+
+        el.style.left = `${originX}px`;
+        el.style.top = `${originY}px`;
+        el.style.fontSize = `${size}px`;
+        el.style.setProperty("--tx", `${spreadX}px`);
+        el.style.setProperty("--tx2", `${spreadX2}px`);
+        el.style.setProperty("--rot", `${rot}deg`);
+        el.style.setProperty("--rot2", `${rot2}deg`);
+        el.style.setProperty("--duration", `${duration}s`);
+
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), duration * 1000);
+      }
+    }
+
+    /* ==========================================================================
+       8.1. FUNGSI INISIALISASI UTAMA & TEMA WARNA
+       ========================================================================== */
+    function setTheme(themeName, silent = false) {
+      appState.theme = themeName;
+      document.documentElement.setAttribute("data-theme", themeName);
+      
+      // Perbarui status aktif tombol tema
+      ["rose", "lavender", "peach"].forEach((t) => {
+        const btn = document.getElementById(`theme-${t}`);
+        if (!btn) return;
+        if (t === themeName) {
+          btn.style.opacity = "1";
+          btn.style.transform = "scale(1.1)";
+        } else {
+          btn.style.opacity = "0.75";
+          btn.style.transform = "scale(1)";
+        }
+      });
+      if (!silent) showToast("🎨", `Tema warna diubah ke ${themeName}!`);
+    }
+
+    /* ==========================================================================
+       GALERI 3 FOTO KENANGAN (ANIMASI MUNCUL SAAT TERLIHAT DI LAYAR)
+       ========================================================================== */
+    function initPhotoGallery() {
+      const stage = document.getElementById("photoStage");
+      if (!stage) return;
+      const tilts = ["-5deg", "3deg", "-3deg"];
+
+      LOVE_MEDIA.photos.slice(0, 3).forEach((p, i) => {
+        const fig = document.createElement("figure");
+        fig.className = "photo-frame";
+        fig.style.setProperty("--r", tilts[i]);
+        fig.style.setProperty("--d", `${i * 0.35}s`);
+
+        const box = document.createElement("div");
+        box.className = "photo-img is-empty";
+        const showPlaceholder = () => {
+          box.innerHTML = `<div class="photo-ph"><span>📷</span><small>Foto ${i + 1}</small></div>`;
+        };
+        if (p.src) {
+          const img = new Image();
+          img.alt = p.caption || `Foto ${i + 1}`;
+		  img.onload = () => box.classList.remove("is-empty");
+          img.onerror = showPlaceholder;
+          img.src = p.src;
+          box.appendChild(img);
+        } else {
+          showPlaceholder();
+        }
+
+        const cap = document.createElement("figcaption");
+        cap.textContent = p.caption || "";
+        fig.append(box, cap);
+        fig.addEventListener("click", (e) => {
+          playSoftPluck(659.25);
+          spawnHearts(e.clientX, e.clientY, 6);
+        });
+        stage.appendChild(fig);
+      });
+
+      const frames = () => stage.querySelectorAll(".photo-frame");
+      if ("IntersectionObserver" in window) {
+        const io = new IntersectionObserver((entries) => {
+          if (entries.some((en) => en.isIntersecting)) {
+            frames().forEach((f) => f.classList.add("show"));
+            io.disconnect();
+          }
+        }, { threshold: 0.3 });
+        io.observe(stage);
+      } else {
+        frames().forEach((f) => f.classList.add("show"));
+      }
+    }
+
+    function applyTextDataToUI() {
+      // Perbarui semua elemen yang memuat nama penerima
+      document.querySelectorAll(".js-recipient-name").forEach(el => {
+        el.textContent = appState.recipient;
+      });
+      
+      const qText = document.getElementById("trapQuestionText");
+      if (qText) {
+        qText.innerHTML = formatWithRecipient(appState.gateQuestion);
+      }
+      
+      const senderEl = document.getElementById("cardSenderName");
+      if (senderEl) {
+        senderEl.textContent = appState.sender;
+      }
+    }
+
+    function initApp() {
+      // Cadangan untuk browser lama yang belum punya roundRect
+      if (window.CanvasRenderingContext2D && !CanvasRenderingContext2D.prototype.roundRect) {
+        CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h) { this.rect(x, y, w, h); };
+      }
+      setTheme(appState.theme, true);
+      applyTextDataToUI();
+      initAmbientLoveCanvas();
+      initGlobalTouchRipples();
+      initPhotoGallery();
+      renderQuiz();
+    }
+
+    /* ==========================================================================
+       9. NOTIFIKASI TOAST LEMBUT
+       ========================================================================== */
+    let toastTimeout = null;
+    function showToast(icon, message) {
+      const toastBox = document.getElementById("toastBox");
+      document.getElementById("toastIcon").textContent = icon;
+      document.getElementById("toastText").textContent = message;
+
+      toastBox.classList.remove("opacity-0", "translate-y-4");
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(() => {
+        toastBox.classList.add("opacity-0", "translate-y-4");
+      }, 3000);
+    }
+
+    /* ==========================================================================
+       10. SINTESIS MUSIK AMBIENT & EFEK SUARA (WEB AUDIO API MURNI)
+       ========================================================================== */
+    let audioCtx = null;
+    let isMusicPlaying = false;
+    let ambientInterval = null;
+    let bgAudio = null;
+
+    function ensureAudioContext() {
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioContextClass();
+      }
+      if (audioCtx.state === "suspended") {
+        audioCtx.resume();
+      }
+    }
+
+    // Efek denting lembut saat klik hati/tombol
+    function playSoftPluck(freq = 523.25) {
+      try {
+        ensureAudioContext();
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.001, now);
+        gain.gain.exponentialRampToValueAtTime(0.08, now + 0.02);
+        gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.55);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.6);
+      } catch (e) {}
+    }
+
+    // Efek suara lucu "boing" saat tombol kabur menghindar
+    function playBoingSound() {
+      try {
+        ensureAudioContext();
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = "triangle";
+        osc.frequency.setValueAtTime(220, now);
+        osc.frequency.exponentialRampToValueAtTime(520, now + 0.14);
+        osc.frequency.exponentialRampToValueAtTime(310, now + 0.25);
+
+        gain.gain.setValueAtTime(0.09, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.26);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.27);
+      } catch (e) {}
+    }
+
+    // Efek suara "buzz" lucu saat kena item bad mood di game
+    function playBuzzSound() {
+      try {
+        ensureAudioContext();
+        const now = audioCtx.currentTime;
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+
+        osc.type = "sawtooth";
+        osc.frequency.setValueAtTime(140, now);
+        osc.frequency.linearRampToValueAtTime(95, now + 0.22);
+
+        gain.gain.setValueAtTime(0.07, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.24);
+
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+
+        osc.start(now);
+        osc.stop(now + 0.25);
+      } catch (e) {}
+    }
+
+    // Akor harmonis saat amplop terbuka / kupon diklaim
+    function playChimeChord() {
+      const notes = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+      notes.forEach((freq, idx) => {
+        setTimeout(() => playSoftPluck(freq), idx * 90);
+      });
+    }
+
+    // Melodi ambient piano lembut berulang
+    function toggleMusic() {
+      const musicIcon = document.getElementById("musicIcon");
+      const musicLabel = document.getElementById("musicLabel");
+
+      if (LOVE_MEDIA.musicUrl) {
+        if (!bgAudio) {
+          bgAudio = new Audio(LOVE_MEDIA.musicUrl);
+          bgAudio.loop = true;
+          bgAudio.volume = 0.6;
+        }
+        if (isMusicPlaying) {
+          bgAudio.pause();
+          isMusicPlaying = false;
+          musicIcon.textContent = "🎵";
+          musicLabel.textContent = "Musik Romantis";
+          showToast("🔇", "Musik dijeda.");
+        } else {
+          bgAudio.play().then(() => {
+            isMusicPlaying = true;
+            musicIcon.textContent = "🎶";
+            musicLabel.textContent = "Sedang Diputar";
+            showToast("🎶", "Memutar musik romantis...");
+          }).catch(() => showToast("⚠️", "Musik belum bisa diputar, cek link musiknya."));
+        }
+        return;
+      }
+
+      if (isMusicPlaying) {
+        isMusicPlaying = false;
+        clearInterval(ambientInterval);
+        musicIcon.textContent = "🎵";
+        musicLabel.textContent = "Musik Lembut";
+        showToast("🔇", "Musik ambient dijeda.");
+      } else {
+        ensureAudioContext();
+        isMusicPlaying = true;
+        musicIcon.textContent = "🎶";
+        musicLabel.textContent = "Sedang Diputar";
+        showToast("🎶", "Memutar melodi romantis lembut...");
+
+        // Urutan nada pentatonik hangat (Fmaj7 -> Cmaj7 -> Am7 -> G6)
+        const melodySequence = [
+          349.23, 440.0, 523.25, 659.25,
+          261.63, 392.0, 493.88, 659.25,
+          220.0, 329.63, 392.0, 523.25,
+          196.0, 293.66, 392.0, 493.88
+        ];
+        let step = 0;
+
+        const playNextAmbientNote = () => {
+          if (!isMusicPlaying) return;
+          const now = audioCtx.currentTime;
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+
+          osc.type = "sine";
+          osc.frequency.setValueAtTime(melodySequence[step % melodySequence.length], now);
+
+          gain.gain.setValueAtTime(0.0001, now);
+          gain.gain.linearRampToValueAtTime(0.045, now + 0.35);
+          gain.gain.exponentialRampToValueAtTime(0.0001, now + 2.2);
+
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+
+          osc.start(now);
+          osc.stop(now + 2.3);
+          step++;
+        };
+
+        playNextAmbientNote();
+        ambientInterval = setInterval(playNextAmbientNote, 950);
+      }
+    }
+
+    // Jalankan inisialisasi saat halaman siap
+    window.addEventListener("DOMContentLoaded", initApp);
+  </script>
+</body>
+</html>
